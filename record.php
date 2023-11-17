@@ -1,9 +1,6 @@
-<html>
-<body>
-
 <?php
 
-    if (isset($_POST["hidden"]))
+    if (isset($_POST["radiovote"]))
     {
         $is_submitted = 1;
     }
@@ -12,18 +9,18 @@
         $is_submitted = 0;
     }
 
-    if (isset($_POST["radVote"]))
+    if (isset($_POST["radiovote"]))
     {
-        $vote = $_POST["radVote"];
+        $vote = $_POST["radiovote"];
     }
     else
     {
         $vote = "";
     }
 
-    if (isset($_POST["txtID"]))
+    if (isset($_POST["ssn"]))
     {
-        $ssn = $_POST["txtID"];
+        $ssn = $_POST["ssn"];
     }
     else
     {
@@ -33,7 +30,7 @@
 
       if ($is_submitted)
       {
-          $fout = fopen("voterecord.txt", "a");
+          $fout = fopen("recordvotes.txt", "a");
           fwrite($fout, "$ssn voted for $vote.\r\n");
           fclose($fout);
       }
@@ -43,5 +40,3 @@
 
 <p>You voted for <?php echo $vote ?>.</p>
 
-</body>
-</html> 

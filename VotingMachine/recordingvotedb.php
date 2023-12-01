@@ -1,5 +1,4 @@
 <?php
-
    echo "Thanks for voting!";
 
    if (isset($_POST["radiovote"]))
